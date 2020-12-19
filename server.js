@@ -28,10 +28,12 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('/api/auth', AuthRoutes)
-app.use('/', DashboardRoutes)
+//app.use('/', DashboardRoutes)
 
 app.get('/', (req, res) => {
-    res.send('Hello');
+    res.sendFile(path.join(__dirname, 'views', 'index.html'))
 })
 
-app.listen(3080)
+app.listen(3080, () => {
+    console.log('ready')
+})
